@@ -1,33 +1,38 @@
 html {
     font-family: var(--font-body);
-    background-color: var(--black);
-    color: var(--green);
+    background-color: var(--cream);
+    color: var(--line);
 }
 
 :root {
-    /* Colours */
-    --black: #010100;
-    --green: #89bd5f;
-    --red: #ff0400;
+    /* Light and dark colours together */
+    --blue: #234958;
+    --orange: #ea9739;
+    --red: gold;
+    --light: #dce6e4;
+    --cream: #fffaf1;
+    --line: #192a33;
+    --color-links: #955040;
+    --line-width: calc(var(--size-xsm) / 8);
 
-    /* Fonts */
-    --font-body: 'IBM Plex Sans', sans-serif;
-    --font-display: 'Space Grotesk', sans-serif;
+    /* Fonts already used by this direction */
+    --font-body: 'Space Mono', monospace;
+    --font-display: 'Archivo Black', sans-serif;
 
-    /* Sizing and spacing */
+    /* Strong title, compact body, visible sections */
     --size-xlg: 4rem;
     --size-lg: 3rem;
     --size-md: 2rem;
     --size-sm: 1.8rem;
     --size-xsm: 1rem;
-    --title-size: clamp(var(--size-lg), 13vw, 6rem);
-    --heading-size: calc(var(--size-xsm) * 1.6);
-    --text-size: calc(var(--size-xsm) * 1.05);
-    --panel-padding: calc(var(--size-xsm) * 1.5);
-    --paragraph-space: calc(var(--size-xsm) * 1.5);
+    --title-size: clamp(var(--size-md), 10vw, var(--size-xlg));
+    --heading-size: calc(var(--size-xsm) * 1.35);
+    --text-size: calc(var(--size-xsm) * 0.95);
+    --panel-padding: calc(var(--size-xsm) * 1.25);
+    --paragraph-space: calc(var(--size-xsm) * 0.85);
 }
 
-/* Main layout */
+/* Stacked page with dark lines between sections */
 body, main, article {
     display: flex;
     flex-direction: column;
@@ -36,18 +41,17 @@ body, main, article {
 
 body {
     margin-inline: auto;
-    background-color: var(--black);
+    background-color: var(--cream);
 }
 
-/* Bigger centered header */
+/* Dark title area, aligned to the left */
 header {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--size-lg);
-    background-color: var(--green);
-    color: var(--black);
-    padding-block: calc(var(--size-xlg) * 2);
+    background-color: var(--blue);
+    color: var(--cream);
+    padding-block: var(--size-lg);
     padding-inline: var(--panel-padding);
 }
 
@@ -56,59 +60,61 @@ h1, h2 {
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: var(--title-size);
     font-weight: 700;
-    line-height: 1.2;
+    text-transform: uppercase;
+    line-height: 1.1;
 }
 
-/* Credits horizontally */
+/* Align the small metadata to the right */
 .credits {
     display: flex;
-    flex-direction: row;
-    gap: var(--size-lg);
-    font-size: calc(var(--size-xsm) * 0.9);
+    flex-direction: column;
+    align-items: end;
+    gap: calc(var(--size-xsm) * 0.5);
+    font-size: calc(var(--size-xsm) * 0.8);
 }
 
-/* Sections */
 section {
     display: flex;
     flex-direction: column;
-    gap: var(--size-xsm);
+    gap: var(--line-width);
+    background-color: var(--line);
 }
 
-/* Red section headings */
 h2 {
     font-size: var(--heading-size);
     font-weight: 700;
+    text-transform: uppercase;
     line-height: 1.35;
-    background-color: var(--red);
-    color: var(--black);
-    padding-block: var(--size-md);
+    background-color: var(--orange);
+    color: var(--line);
+    padding-block: var(--size-xsm);
     padding-inline: var(--panel-padding);
 }
 
-/* Green text on black background */
+/* Cream panels contrast the dark title and section dividers */
 .text {
     display: flex;
     flex-direction: column;
     gap: var(--paragraph-space);
     font-size: var(--text-size);
-    line-height: 1.7;
-    background-color: var(--black);
+    line-height: 1.75;
+    background-color: var(--cream);
+    color: var(--line);
     padding-inline: var(--panel-padding);
     padding-block: var(--size-md);
 }
 
 p {
-    max-inline-size: 100%;
+    max-inline-size: 65ch;
 }
 
-/* Red links */
 a {
-    color: var(--red);
+    color: var(--color-links);
     text-decoration: underline;
 }
 
+header a {
+    color: var(--orange);
+}
