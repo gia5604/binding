@@ -1,120 +1,195 @@
-html {
-    font-family: var(--font-body);
-    background-color: var(--cream);
-    color: var(--line);
-}
 
 :root {
-    /* Light and dark colours together */
-    --blue: #234958;
-    --orange: #ea9739;
-    --red: gold;
-    --light: #dce6e4;
-    --cream: #fffaf1;
-    --line: #192a33;
-    --color-links: #955040;
-    --line-width: calc(var(--size-xsm) / 8);
+	/* Penguin book cover colours */
+	--red: #B9343F;
+	--dark-red: #7A2530;
+	--light-red: #E5A0A3;
+	--cream: #FFF8E8;
+	--ink: #251D20;
 
-    /* Fonts already used by this direction */
-    --font-body: 'Space Mono', monospace;
-    --font-display: 'Archivo Black', sans-serif;
+	/* Fonts */
+	--font-body: 'Space Mono', monospace;
+	--font-display: 'Archivo Black', sans-serif;
 
-    /* Strong title, compact body, visible sections */
-    --size-xlg: 4rem;
-    --size-lg: 3rem;
-    --size-md: 2rem;
-    --size-sm: 1.8rem;
-    --size-xsm: 1rem;
-    --title-size: clamp(var(--size-md), 10vw, var(--size-xlg));
-    --heading-size: calc(var(--size-xsm) * 1.35);
-    --text-size: calc(var(--size-xsm) * 0.95);
-    --panel-padding: calc(var(--size-xsm) * 1.25);
-    --paragraph-space: calc(var(--size-xsm) * 0.85);
+	/* Sizes */
+	--size-xlg: 4rem;
+	--size-lg: 3rem;
+	--size-md: 2rem;
+	--size-xsm: 1rem;
+
+	--title-size: clamp(var(--size-lg), 12vw, 8rem);
+	--heading-size: calc(var(--size-xsm) * 1.5);
+	--text-size: var(--size-xsm);
+	--panel-padding: calc(var(--size-xsm) * 1.5);
 }
 
-/* Stacked page with dark lines between sections */
-body, main, article {
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-md);
+/* Whole page */
+
+html {
+	font-family: var(--font-body);
+	background-color: var(--dark-red);
+	color: var(--ink);
 }
 
-body {
-    margin-inline: auto;
-    background-color: var(--cream);
+html body {
+	display: flex;
+	flex-direction: column;
+	max-inline-size: 80rem;
+	margin-inline: auto;
+	background-color: var(--red);
 }
 
-/* Dark title area, aligned to the left */
-header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--size-lg);
-    background-color: var(--blue);
-    color: var(--cream);
-    padding-block: var(--size-lg);
-    padding-inline: var(--panel-padding);
+/* Top of the book cover */
+
+body > header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-xsm);
+	background-color: var(--red);
+	color: var(--cream);
+	padding-block: var(--size-md);
+	padding-inline: var(--panel-padding);
+	font-size: calc(var(--size-xsm) * 0.8);
 }
 
-h1, h2 {
-    font-family: var(--font-display);
+/* Main book cover */
+
+body > main {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--red);
+	padding-inline: var(--size-xsm);
 }
 
-h1 {
-    font-size: var(--title-size);
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 1.1;
+main .cover {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-lg);
+	background-color: var(--cream);
+	padding-block: calc(var(--size-xlg) * 2);
+	padding-inline: var(--panel-padding);
 }
 
-/* Align the small metadata to the right */
-.credits {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: calc(var(--size-xsm) * 0.5);
-    font-size: calc(var(--size-xsm) * 0.8);
+/* Book title */
+
+.cover h1 {
+	font-family: var(--font-display);
+	font-size: var(--title-size);
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--dark-red);
 }
 
-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--line-width);
-    background-color: var(--line);
+/* Contents */
+
+.cover nav {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-md);
+	inline-size: 100%;
+	max-inline-size: 55rem;
 }
 
-h2 {
-    font-size: var(--heading-size);
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 1.35;
-    background-color: var(--orange);
-    color: var(--line);
-    padding-block: var(--size-xsm);
-    padding-inline: var(--panel-padding);
+.cover h2 {
+	font-family: var(--font-display);
+	font-size: var(--heading-size);
+	font-weight: 700;
+	line-height: 1.3;
+	text-align: center;
+	color: var(--dark-red);
 }
 
-/* Cream panels contrast the dark title and section dividers */
-.text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--paragraph-space);
-    font-size: var(--text-size);
-    line-height: 1.75;
-    background-color: var(--cream);
-    color: var(--line);
-    padding-inline: var(--panel-padding);
-    padding-block: var(--size-md);
+.cover nav ul {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-xsm);
 }
 
-p {
-    max-inline-size: 65ch;
+.cover nav li a {
+	display: block;
+	padding-block: var(--size-md);
+	padding-inline: var(--panel-padding);
+	font-family: var(--font-display);
+	font-size: var(--text-size);
+	line-height: 1.5;
+	text-decoration: none;
 }
 
-a {
-    color: var(--color-links);
-    text-decoration: underline;
+/* First article */
+
+.cover nav li:nth-child(1) a {
+	background-color: var(--red);
+	color: var(--cream);
 }
 
-header a {
-    color: var(--orange);
+/* Second article */
+
+.cover nav li:nth-child(2) a {
+	background-color: var(--dark-red);
+	color: var(--cream);
+}
+
+/* Third article */
+
+.cover nav li:nth-child(3) a {
+	background-color: var(--light-red);
+	color: var(--ink);
+}
+
+/* Link interaction */
+
+.cover nav a:hover {
+	text-decoration: underline;
+}
+
+.cover nav a:focus-visible {
+	text-decoration: underline;
+}
+
+/* Bottom of the book cover */
+
+body > footer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-xsm);
+	background-color: var(--red);
+	color: var(--cream);
+	padding-block: var(--size-md);
+	padding-inline: var(--panel-padding);
+	font-size: calc(var(--size-xsm) * 0.8);
+	line-height: 1.6;
+}
+
+/* Larger screens */
+
+@media (width > 900px) {
+
+	body > header {
+		flex-direction: row;
+		justify-content: space-between;
+		padding-inline: var(--size-lg);
+	}
+
+	body > main {
+		padding-inline: var(--size-md);
+	}
+
+	main .cover {
+		gap: var(--size-xlg);
+		padding-block: calc(var(--size-xlg) * 2);
+		padding-inline: var(--size-lg);
+	}
+
+	.cover nav {
+		max-inline-size: 45rem;
+	}
+
+	body > footer {
+		flex-direction: row;
+		justify-content: space-between;
+		padding-inline: var(--size-lg);
+	}
 }
