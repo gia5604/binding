@@ -1,0 +1,120 @@
+html {
+	font-family: var(--font-body);
+	background-color: var(--cream);
+	color: var(--line);
+}
+
+:root {
+	/* Light and dark colours together */
+	--blue: #234958;
+	--orange: #ea9739;
+	--red: gold;
+	--light: #dce6e4;
+	--cream: #fffaf1;
+	--line: #192a33;
+	--color-links: #955040;
+	--line-width: calc(var(--size-xsm) / 8);
+
+	/* Fonts already used by this direction */
+	--font-body: 'Space Mono', monospace;
+	--font-display: 'Archivo Black', sans-serif;
+
+	/* Strong title, compact body, visible sections */
+	--size-xlg: 4rem;
+	--size-lg: 3rem;
+	--size-md: 2rem;
+	--size-sm: 1.8rem;
+	--size-xsm: 1rem;
+	--title-size: clamp(var(--size-md), 10vw, var(--size-xlg));
+	--heading-size: calc(var(--size-xsm) * 1.35);
+	--text-size: calc(var(--size-xsm) * 0.95);
+	--panel-padding: calc(var(--size-xsm) * 1.25);
+	--paragraph-space: calc(var(--size-xsm) * 0.85);
+}
+
+/* Stacked page with dark lines between sections */
+body, main, article {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-md);
+}
+
+body {
+	margin-inline: auto;
+	background-color: var(--cream);
+}
+
+/* Dark title area, aligned to the left */
+header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-lg);
+	background-color: var(--blue);
+	color: var(--cream);
+	padding-block: var(--size-lg);
+	padding-inline: var(--panel-padding);
+}
+
+h1, h2 {
+	font-family: var(--font-display);
+}
+
+h1 {
+	font-size: var(--title-size);
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.1;
+}
+
+/* Align the small metadata to the right */
+.credits {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	gap: calc(var(--size-xsm) * 0.5);
+	font-size: calc(var(--size-xsm) * 0.8);
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--line-width);
+	background-color: var(--line);
+}
+
+h2 {
+	font-size: var(--heading-size);
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.35;
+	background-color: var(--orange);
+	color: var(--line);
+	padding-block: var(--size-xsm);
+padding-inline: var(--panel-padding);
+}
+
+/* Cream panels contrast the dark title and section dividers */
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--paragraph-space);
+	font-size: var(--text-size);
+	line-height: 1.75;
+	background-color: var(--cream);
+	color: var(--line);
+	padding-inline: var(--panel-padding);
+	padding-block: var(--size-md);
+}
+
+p {
+	max-inline-size: 65ch;
+}
+
+a {
+	color: var(--color-links);
+	text-decoration: underline;
+}
+
+header a {
+	color: var(--orange);
+}
