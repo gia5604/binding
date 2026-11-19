@@ -150,9 +150,9 @@ a:focus-visible {
 		padding-inline: var(--size-lg);
 	}
 
-	article {a
+	article {
 		 max-inline-size: 75ch;
-		margin-inline: auto;av
+		margin-inline: auto;
 	}
 
 	h2 {
